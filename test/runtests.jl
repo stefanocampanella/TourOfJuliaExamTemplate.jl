@@ -2,5 +2,7 @@ using TourOfJuliaExamTemplate
 using Test
 
 @testset "TourOfJuliaExamTemplate.jl" begin
-    # Write your tests here.
+    for (n, sol) in enumerate(solutions)
+        @test @eval $(Symbol("problem_", n))() == $sol
+    end
 end
